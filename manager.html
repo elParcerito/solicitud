@@ -1,0 +1,202 @@
+<!doctype html>
+
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Postulación Manager — DJ~BEATRØX</title>
+  <meta name="description" content="Formulario de postulación para manager de DJ~BEATRØX" />
+  <style>
+    /* Simple, elegant single-file styling */
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#ff5e7a;--muted:#9aa4b2;--glass:rgba(255,255,255,0.04)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;color:#e6eef6;background:linear-gradient(180deg,var(--bg),#061022);-webkit-font-smoothing:antialiased}
+    .wrap{max-width:920px;margin:40px auto;padding:28px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:14px;padding:28px;box-shadow:0 10px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+    header{display:flex;gap:18px;align-items:center}
+    .logo{width:78px;height:78px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent),#7b61ff);font-weight:700;color:white;font-size:22px}
+    h1{margin:0;font-size:20px}
+    p.lead{color:var(--muted);margin:6px 0 18px}
+    form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+    input[type="text"],input[type="email"],textarea,input[type="tel"],input[type="url"],select{width:100%;padding:10px 12px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.04);color:inherit;font-size:14px}
+    textarea{min-height:120px;resize:vertical}
+    .full{grid-column:1/ -1}
+    .actions{display:flex;gap:10px;align-items:center;margin-top:14px}
+    button{background:linear-gradient(90deg,var(--accent),#7b61ff);border:none;padding:10px 14px;border-radius:10px;color:white;font-weight:600;cursor:pointer}
+    .secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+    .note{font-size:13px;color:var(--muted);margin-top:12px}
+    .info-strip{background:rgba(255,255,255,0.02);padding:10px;border-radius:10px;margin-top:14px;display:flex;gap:12px;align-items:center}
+    .badge{background:rgba(0,0,0,0.25);padding:8px 10px;border-radius:8px;font-weight:700}
+    footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+    @media (max-width:720px){form{grid-template-columns:1fr} .wrap{margin:18px;padding:18px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <header>
+        <div class="logo">DJ</div>
+        <div>
+          <h1>Postulación como Manager — DJ~BEATRØX</h1>
+          <p class="lead">Gracias por interesarte en representar y gestionar el proyecto artístico de DJ~BEATRØX. Complete el formulario y su solicitud llegará directo al correo configurado.</p>
+        </div>
+      </header><div class="info-strip">
+    <div class="badge">Contacto</div>
+    <div>
+      <div><strong>WhatsApp / Tel:</strong> <a href="https://wa.me/56996849297" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">+56 9 9684 9297</a></div>
+      <div style="font-size:13px;color:var(--muted)">Asegúrese de incluir links y datos de contacto válidos en su postulación.</div>
+    </div>
+  </div>
+
+  <form id="appForm" onsubmit="return handleSubmit(event)">
+    <div>
+      <label for="name">Nombre completo</label>
+      <input id="name" name="name" type="text" placeholder="Ej: Juan Pérez" required />
+    </div>
+
+    <div>
+      <label for="email">Correo electrónico</label>
+      <input id="email" name="email" type="email" placeholder="ejemplo@correo.com" required />
+    </div>
+
+    <div>
+      <label for="phone">Teléfono / WhatsApp</label>
+      <input id="phone" name="phone" type="tel" placeholder="+56 9 9xxx xxxx" />
+    </div>
+
+    <div>
+      <label for="location">Ciudad / Región</label>
+      <input id="location" name="location" type="text" placeholder="Ej: Santiago, Chile" />
+    </div>
+
+    <div class="full">
+      <label for="experience">Experiencia breve (¿Has gestionado artistas antes?)</label>
+      <textarea id="experience" name="experience" placeholder="Describa su experiencia, responsabilidades y logros." required></textarea>
+    </div>
+
+    <div class="full">
+      <label for="links">Links relevantes (portafolio, redes, contratos, muestras)</label>
+      <input id="links" name="links" type="url" placeholder="https://" />
+    </div>
+
+    <div>
+      <label for="why">¿Por qué quieres ser mi manager?</label>
+      <textarea id="why" name="why" placeholder="Motivación y expectativas" required></textarea>
+    </div>
+
+    <div>
+      <label for="availability">Disponibilidad</label>
+      <select id="availability" name="availability">
+        <option value="full">Tiempo completo</option>
+        <option value="part">Medio tiempo / Part time</option>
+        <option value="project">Por proyecto</option>
+        <option value="other">Otro</option>
+      </select>
+    </div>
+
+    <div class="full">
+      <label><input id="agree" type="checkbox" required /> Acepto postular sabiendo que la etapa inicial es <strong>sin remuneración económica</strong> y que la propuesta está orientada a construir un proyecto conjunto.</label>
+    </div>
+
+    <div class="actions full">
+      <button type="submit">Enviar postulación (abrir correo)</button>
+      <button type="button" class="secondary" onclick="copyJSON()">Copiar postulación (portapapeles)</button>
+      <button type="button" class="secondary" onclick="downloadJSON()">Descargar JSON</button>
+    </div>
+
+    <div class="note full">Nota: este formulario abre su cliente de correo por defecto y compone un email dirigido a la dirección configurada en el archivo. Si desea que las postulaciones se guarden automáticamente en un sistema, puedo ayudarle a integrar Formspree, Google Forms o un backend simple. Actualmente la dirección de destino está configurada como <code>YOUR_EMAIL_HERE</code>. Cambie ese valor dentro del código si desea recibir los mails. </div>
+
+  </form>
+
+  <footer>
+    <small>Diseñado para DJ~BEATRØX — Para cambiar el correo receptor abra este archivo y edite la variable <code>recipientEmail</code> en el script al final del documento.</small>
+  </footer>
+</div>
+
+  </div>  <script>
+    // Cambie el correo a la dirección donde desea recibir las postulaciones
+    const recipientEmail = 'djzebo1019@gmail.com';
+    const recipientName = 'DJ~BEATRØX';
+
+    function sanitize(text){
+      return String(text||'').replace(/\r|\n/g,' ').trim();
+    }
+
+    function handleSubmit(e){
+      e.preventDefault();
+      const form = document.getElementById('appForm');
+      const data = {
+        nombre: sanitize(form.name.value),
+        email: sanitize(form.email.value),
+        phone: sanitize(form.phone.value),
+        location: sanitize(form.location.value),
+        experience: sanitize(form.experience.value),
+        links: sanitize(form.links.value),
+        why: sanitize(form.why.value),
+        availability: sanitize(form.availability.value),
+      };
+
+      const subject = encodeURIComponent('Postulación Manager - ' + (data.nombre || 'Sin nombre'));
+      let body = '';
+      body += 'Nombre: ' + data.nombre + '\n';
+      body += 'Correo: ' + data.email + '\n';
+      body += 'Teléfono: ' + data.phone + '\n';
+      body += 'Ciudad/Región: ' + data.location + '\n\n';
+      body += 'Experiencia:\n' + data.experience + '\n\n';
+      body += 'Links: ' + data.links + '\n\n';
+      body += 'Motivación / Por qué ser manager:\n' + data.why + '\n\n';
+      body += 'Disponibilidad: ' + data.availability + '\n\n';
+      body += 'Enviado desde: ' + window.location.href + '\n';
+
+      const mailto = 'mailto:' + encodeURIComponent(recipientEmail)
+                   + '?subject=' + subject
+                   + '&body=' + encodeURIComponent(body);
+
+      // Intenta abrir el cliente de correo
+      window.location.href = mailto;
+
+      // Also offer to copy JSON to clipboard
+      try{navigator.clipboard.writeText(JSON.stringify(data,null,2));}catch(e){/*ignore*/}
+
+      return false;
+    }
+
+    function copyJSON(){
+      const form = document.getElementById('appForm');
+      const data = {
+        nombre: form.name.value,
+        email: form.email.value,
+        phone: form.phone.value,
+        location: form.location.value,
+        experience: form.experience.value,
+        links: form.links.value,
+        why: form.why.value,
+        availability: form.availability.value
+      };
+      const text = JSON.stringify(data, null, 2);
+      navigator.clipboard.writeText(text).then(()=>{
+        alert('Postulación copiada al portapapeles');
+      }).catch(()=>alert('No se pudo copiar.')); 
+    }
+
+    function downloadJSON(){
+      const form = document.getElementById('appForm');
+      const data = {
+        nombre: form.name.value,
+        email: form.email.value,
+        phone: form.phone.value,
+        location: form.location.value,
+        experience: form.experience.value,
+        links: form.links.value,
+        why: form.why.value,
+        availability: form.availability.value
+      };
+      const blob = new Blob([JSON.stringify(data,null,2)], {type:'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'postulacion_manager.json';
+      document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    }
+  </script></body>
+</html>
