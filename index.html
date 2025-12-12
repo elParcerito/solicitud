@@ -1,212 +1,115 @@
-<!doctype html>
-
-<html lang="es">
+<!DOCTYPE html><html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>DJ~BEATRØX — Contrata tu experiencia</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{--bg:#0f1724;--card:#0b1220;--accent:#ff5a7c;--muted:#9aa6b2;--glass:rgba(255,255,255,0.04)}
-    *{box-sizing:border-box}
-    body{font-family:'Poppins',system-ui,Segoe UI,Roboto,Arial; margin:0; background:linear-gradient(180deg,#071124 0%, #071a2a 60%); color:#e6eef6; -webkit-font-smoothing:antialiased}
-    .container{max-width:1100px;margin:36px auto;padding:28px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .brand{display:flex;align-items:center;gap:14px}
-    .logo{width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#6c5ce7);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px;box-shadow:0 6px 18px rgba(0,0,0,0.5)}
-    .logo span{letter-spacing:2px}
-    h1{margin:8px 0 0;font-size:28px}
-    p.lead{color:var(--muted);margin:6px 0 0}.hero{display:grid;grid-template-columns:1fr 360px;gap:28px;margin-top:28px}
-.card{background:var(--card);border-radius:14px;padding:20px;box-shadow:0 8px 24px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
-.cta{display:flex;flex-direction:column;gap:12px}
-.cta button{background:linear-gradient(90deg,var(--accent),#6c5ce7);border:0;padding:12px 16px;border-radius:10px;color:white;font-weight:600;cursor:pointer}
-.cta a{display:inline-block;text-decoration:none;color:var(--muted);font-size:14px}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contratar a DJ~BEATRØX</title>
+    <style>
+        :root {
+            --primary: #7b2ff7;
+            --primary-dark: #5b14c4;
+            --bg: #0f0f0f;
+            --card-bg: #181818;
+            --text: #ffffff;
+            --accent: #ffcf3f;
+        }
+        * {margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", sans-serif;}
+        body {background: var(--bg); color: var(--text); padding: 20px;}
+        h1, h2, h3 {text-align: center;}
+        .container {max-width: 900px; margin: auto;}
+        .plans {display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 20px; margin: 30px 0;}
+        .plan {background: var(--card-bg); padding: 20px; border-radius: 12px; box-shadow: 0 0 10px #0006; transition: 0.3s;}
+        .plan:hover {transform: translateY(-5px);}        
+        .plan button {margin-top:15px;width:100%;padding:12px;background:var(--primary);color:white;border:none;border-radius:8px;font-size:16px;cursor:pointer;}
+        form {background:var(--card-bg);padding:20px;border-radius:10px;margin-top:40px;}
+        input, select {width:100%;padding:12px;margin:10px 0;border-radius:6px;border:none;}
+        #pago-exitoso {display:none;background:#0d7e32;padding:20px;margin-top:20px;border-radius:10px;color:white;text-align:center;font-size:18px;}
+        .btn-wa {display:none;background:#25d366;padding:15px;text-align:center;margin-top:15px;border-radius:10px;color:black;font-size:18px;font-weight:bold;text-decoration:none;}/* FORMULARIO DE PAGO */
+    #pago-section {display:none;background:var(--card-bg);padding:20px;margin-top:30px;border-radius:10px;}
+</style>
 
-.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
-.plan{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px}
-.plan h3{margin:0 0 6px}
-.price{font-weight:700;font-size:20px;margin-top:8px}
-.benefits{color:var(--muted);font-size:14px;margin-top:10px}
-.plan button{margin-top:14px;width:100%;padding:10px;border-radius:10px;border:0;background:transparent;color:var(--accent);font-weight:700;cursor:pointer}
-
-.features{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
-.feature{background:var(--glass);padding:14px;border-radius:10px;color:var(--muted)}
-
-footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px}
-
-/* modal */
-.modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:none;align-items:center;justify-content:center;padding:20px}
-.modal{background:#071024;padding:20px;border-radius:12px;max-width:540px;width:100%;box-shadow:0 12px 40px rgba(2,6,23,0.8);border:1px solid rgba(255,255,255,0.03)}
-.modal h4{margin-top:0}
-.form-row{display:flex;flex-direction:column;margin-top:10px}
-.form-row label{font-size:13px;color:var(--muted);margin-bottom:6px}
-.form-row input, .form-row select, .form-row textarea{padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
-.modal .actions{display:flex;gap:10px;justify-content:flex-end;margin-top:14px}
-.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 12px;border-radius:8px;color:var(--muted);cursor:pointer}
-.btn-primary{background:linear-gradient(90deg,var(--accent),#6c5ce7);border:0;padding:10px 12px;border-radius:8px;color:white;cursor:pointer}
-
-@media(max-width:880px){.hero{grid-template-columns:1fr} .plans{grid-template-columns:1fr} .features{grid-template-columns:1fr}}
-
-  </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="brand">
-        <div class="logo"><span>DJ~<strong>BE</strong></span></div>
-        <div>
-          <h1>DJ~BEATRØX</h1>
-          <p class="lead">Experiencias sonoras a medida — Eventos sociales, corporativos y privados</p>
-        </div>
-      </div>
-      <div class="cta">
-        <div style="text-align:right;color:var(--muted);font-size:14px">Contacto rápido</div>
-        <a href="https://wa.me/56996849297" target="_blank" style="text-decoration:none"><button>Enviar WhatsApp • +56 9 9684 9297</button></a>
-        <a href="#plans" style="text-align:right">Ver planes</a>
-      </div>
-    </header><section class="hero">
-  <div class="card">
-    <h2 style="margin:0">Propuesta de servicios</h2>
-    <p style="color:var(--muted);margin-top:8px">Hola — soy <strong>DJ~BEATRØX</strong>. Transformo eventos con música selecta, mezclas profesionales y una puesta en escena que se siente y se recuerda. A continuación encontrarás los planes disponibles y una forma sencilla de contratarlos.</p>
-
-    <div id="plans" class="plans">
-      <div class="plan">
-        <h3>Plan Esencial</h3>
-        <div class="price">$85.000 CLP</div>
-        <div class="benefits">3 horas • Sonido profesional (espacios pequeños) • Montaje incluido</div>
-        <button onclick="openModal('Plan Esencial',85000)">Contratar</button>
-      </div>
-
-      <div class="plan">
-        <h3>Plan Premium</h3>
-        <div class="price">$160.000 CLP</div>
-        <div class="benefits">5 horas • Micrófono inalámbrico • Iluminación básica</div>
-        <button onclick="openModal('Plan Premium',160000)">Contratar</button>
-      </div>
-
-      <div class="plan">
-        <h3>Plan Élite</h3>
-        <div class="price">$300.000 CLP</div>
-        <div class="benefits">7 horas • Sonido potente • Iluminación sincronizada • 2 micrófonos</div>
-        <button onclick="openModal('Plan Élite',300000)">Contratar</button>
-      </div>
-    </div>
-
-    <div class="features" style="margin-top:18px">
-      <div class="feature">
-        <strong>Profesionalismo</strong>
-        <div style="margin-top:6px;color:var(--muted);font-size:14px">Puntualidad, montaje técnico y comunicación clara desde la reserva hasta el desmontaje.</div>
-      </div>
-      <div class="feature">
-        <strong>Adaptabilidad</strong>
-        <div style="margin-top:6px;color:var(--muted);font-size:14px">Setlist personalizado, mezcla adaptada al público y coordinación de momentos clave.</div>
-      </div>
-    </div>
-
-  </div>
-
-  <aside class="card">
-    <h3 style="margin-top:0">Reserva rápida</h3>
-    <p style="color:var(--muted);font-size:14px">Selecciona un plan y completa el formulario. El botón de pago es una simulación: al confirmar recibirás instrucciones para formalizar la reserva por WhatsApp o transferencia.</p>
-
-    <div style="margin-top:12px">
-      <strong>Contacto directo</strong>
-      <div style="margin-top:8px;color:var(--muted)">WhatsApp: <a href="https://wa.me/56996849297" target="_blank" style="color:#cfe9ff;text-decoration:none">+56 9 9684 9297</a></div>
-      <div style="margin-top:10px;color:var(--muted);font-size:13px">Disponible para consultas y confirmaciones rápidas.</div>
-    </div>
-
-    <div style="margin-top:18px">
-      <button onclick="openModal('Plan Premium',160000)" style="width:100%;padding:12px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--accent),#6c5ce7);color:white;font-weight:700">Reservar ahora</button>
-    </div>
-  </aside>
-</section>
-
-<section class="card" style="margin-top:18px">
-  <h3 style="margin-top:0">Cómo funciona</h3>
-  <ol style="color:var(--muted);line-height:1.6">
-    <li>Elige un plan y haz clic en <strong>Contratar</strong>.</li>
-    <li>Completa el formulario de reserva y haz clic en <strong>Confirmar & Pagar</strong> (simulación).</li>
-    <li>Recibirás un resumen con los datos de reserva y un enlace para contactar por WhatsApp y formalizar el depósito del 30%.</li>
-    <li>Tras el depósito, la fecha se confirma y coordinamos los detalles finos (playlist, horarios, etc.).</li>
-  </ol>
-</section>
-
-<footer>
-  <div class="card" style="display:inline-block;padding:16px;border-radius:10px;">© 2025 DJ~BEATRØX — Todas las reservas sujetas a disponibilidad</div>
-</footer>
-
-  </div>  <!-- Modal -->  <div id="modalBackdrop" class="modal-backdrop">
-    <div class="modal" role="dialog" aria-modal="true">
-      <h4 id="modalTitle">Reservar</h4>
-      <p id="planSummary" style="color:var(--muted);margin-top:6px">Complete los datos para confirmar la reserva.</p><div class="form-row">
-    <label for="name">Tu nombre</label>
-    <input id="name" placeholder="Nombre completo" />
-  </div>
-
-  <div class="form-row">
-    <label for="email">Correo (opcional)</label>
-    <input id="email" placeholder="correo@ejemplo.com" />
-  </div>
-
-  <div class="form-row">
-    <label for="date">Fecha del evento</label>
-    <input id="date" type="date" />
-  </div>
-
-  <div class="form-row">
-    <label for="notes">Notas (estilo musical, lugar, invitados)</label>
-    <textarea id="notes" rows="3" placeholder="Ej: boda, 120 invitados, formato pop/latino"></textarea>
-  </div>
-
-  <div class="actions">
-    <button class="btn-ghost" onclick="closeModal()">Cancelar</button>
-    <button class="btn-primary" id="confirmBtn">Confirmar & Pagar</button>
-  </div>
-
-  <div id="result" style="display:none;margin-top:12px;padding:12px;border-radius:8px;background:rgba(255,255,255,0.02);color:var(--muted)"></div>
+<div class="container">
+    <h1>Contrata a DJ~BEATRØX</h1>
+    <p style="text-align:center;margin-top:10px;font-size:18px;">Música profesional, show y experiencia premium.</p><h2 style="margin-top:40px;">Planes Disponibles</h2>
+<div class="plans">
+    <div class="plan"><h3>Plan Básico</h3><p>🎧 Música + Animación básica</p><p>💡 Sin iluminación</p><p style="font-size:22px;margin-top:10px;">$45.000</p><button onclick="seleccionarPlan('Plan Básico',45000)">Seleccionar</button></div>
+    <div class="plan"><h3>Plan Full</h3><p>🎧 Música + Animación completa</p><p>💡 Iluminación simple</p><p style="font-size:22px;margin-top:10px;">$80.000</p><button onclick="seleccionarPlan('Plan Full',80000)">Seleccionar</button></div>
+    <div class="plan"><h3>Plan Ultimate</h3><p>🎧 Show completo premium</p><p>💡 Luces pro + humo</p><p style="font-size:22px;margin-top:10px;">$120.000</p><button onclick="seleccionarPlan('Plan Ultimate',120000)">Seleccionar</button></div>
 </div>
 
-  </div>  <script>
-    let selectedPlan = null;
-    function openModal(plan, price){
-      selectedPlan = {plan, price};
-      document.getElementById('modalBackdrop').style.display = 'flex';
-      document.getElementById('modalTitle').innerText = 'Reservar: ' + plan;
-      document.getElementById('planSummary').innerText = 'Precio simulado: $' + price.toLocaleString('es-CL') + ' CLP. Complete sus datos y confirme para recibir instrucciones.';
-      document.getElementById('result').style.display = 'none';
-    }
-    function closeModal(){
-      document.getElementById('modalBackdrop').style.display = 'none';
-    }
+<form id="formulario">
+    <h2>Datos para la Reserva</h2>
+    <label>Nombre Completo</label>
+    <input type="text" id="nombre" required>
+    <label>Correo Electrónico</label>
+    <input type="email" id="correo" required>
+    <label>Fecha del Evento</label>
+    <input type="date" id="fecha" required>
+    <label>Plan Seleccionado</label>
+    <input type="text" id="plan" readonly>
+    <label>Total a Pagar</label>
+    <input type="text" id="total" readonly>
+    <button type="button" onclick="irAPago()" style="background:var(--accent); font-weight:bold;">Continuar con el Pago</button>
+</form>
 
-    document.getElementById('confirmBtn').addEventListener('click', function(){
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const date = document.getElementById('date').value;
-      const notes = document.getElementById('notes').value.trim();
+<!-- FORMULARIO DE PAGO -->
+<div id="pago-section">
+    <h2>Formulario de Pago</h2>
+    <label>Número de Tarjeta</label>
+    <input type="text" maxlength="16" placeholder="0000 0000 0000 0000">
+    <label>Nombre del Titular</label>
+    <input type="text" placeholder="Como aparece en la tarjeta">
+    <label>Fecha de Expiración</label>
+    <input type="text" placeholder="MM/AA">
+    <label>Código CVV</label>
+    <input type="text" maxlength="3" placeholder="123">
+    <button onclick="procesarPago()" style="background:var(--primary-dark);margin-top:10px;padding:12px;border:none;width:100%;color:white;border-radius:8px;font-size:16px;cursor:pointer;">Pagar Ahora</button>
+</div>
 
-      if(!name || !date){
-        alert('Por favor ingrese su nombre y la fecha del evento.');
-        return;
-      }
+<div id="pago-exitoso">✔ Pago Exitoso — ¡Tu reserva está lista!</div>
 
-      const deposit = Math.round(selectedPlan.price * 0.30);
-      const waNumber = '56996849297';
-      const msg = encodeURIComponent(`Hola, soy ${name}. Quiero reservar *${selectedPlan.plan}* para la fecha ${date}. Monto total: $${selectedPlan.price}. Depósito 30%: $${deposit}. Notas: ${notes || '-'}.`);
-      const waLink = `https://wa.me/${waNumber}?text=${msg}`;
+<a id="btn-wa" class="btn-wa" target="_blank">Enviar datos por WhatsApp</a>
 
-      const resultEl = document.getElementById('result');
-      resultEl.style.display = 'block';
-      resultEl.innerHTML = `Reserva simulada creada.<br><br><strong>Resumen:</strong><br>Cliente: ${name} ${email ? '<br>Correo: '+email : ''}<br>Plan: ${selectedPlan.plan}<br>Fecha: ${date}<br>Precio total: $${selectedPlan.price.toLocaleString('es-CL')} CLP<br>Depósito sugerido (30%): $${deposit.toLocaleString('es-CL')} CLP<br><br>Para formalizar la reserva, haga clic en el botón de abajo para enviar un mensaje por WhatsApp al número del DJ y coordinar el pago (esto abre WhatsApp).`;
+</div><script>
+let selectedPlan = null;
+let selectedPrice = 0;
 
-      resultEl.innerHTML += `<div style="margin-top:10px"><a href='${waLink}' target='_blank'><button class='btn-primary'>Contactar por WhatsApp • +56 9 9684 9297</button></a></div>`;
+function seleccionarPlan(plan, price) {
+    selectedPlan = plan;
+    selectedPrice = price;
+    document.getElementById("plan").value = plan;
+    document.getElementById("total").value = "$" + price.toLocaleString();
+    window.scrollTo({ top: document.body.scrollHeight, behavior:'smooth' });
+}
 
-      // opcional: limpiar inputs o mantener
-    });
+function irAPago() {
+    if (!selectedPlan) {alert("Selecciona un plan.");return;}
+    const nombre = document.getElementById("nombre").value;
+    const correo = document.getElementById("correo").value;
+    const fecha = document.getElementById("fecha").value;
+    if (!nombre || !correo || !fecha) {alert("Completa todos los campos.");return;}
+    document.getElementById("pago-section").style.display = "block";
+    window.scrollTo({ top: document.body.scrollHeight, behavior:'smooth' });
+}
 
-    // cerrar modal al hacer click fuera
-    document.getElementById('modalBackdrop').addEventListener('click', function(e){
-      if(e.target === this) closeModal();
-    });
-  </script></body>
+function procesarPago() {
+    document.getElementById("pago-exitoso").style.display = "block";
+
+    const wa = document.getElementById("btn-wa");
+    const nombre = document.getElementById("nombre").value;
+    const correo = document.getElementById("correo").value;
+    const fecha = document.getElementById("fecha").value;
+
+    const mensaje = `Hola, soy ${nombre}.
+Correo: ${correo}.
+Fecha: ${fecha}.
+Plan: ${selectedPlan}.
+Total: $${selectedPrice.toLocaleString()}.`;
+
+    wa.href = `https://wa.me/56996849297?text=` + encodeURIComponent(mensaje);
+    wa.style.display = "block";
+    window.scrollTo({ top: document.body.scrollHeight, behavior:'smooth' });
+}
+</script></body>
 </html>
